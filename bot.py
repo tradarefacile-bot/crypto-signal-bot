@@ -92,7 +92,7 @@ def get_balance() -> float:
             return 0.0
         b = resp.get("result", {})
         logger.info(f"Kraken balances: {b}")
-        val = float(b.get("USDC", 0) or b.get("ZUSD", 0) or b.get("USD", 0) or 0)
+        val = float(b.get("ZUSD", 0) or b.get("USD", 0) or b.get("USDC", 0) or 0)
         return val
     except Exception as e:
         logger.error(f"get_balance error: {e}")
